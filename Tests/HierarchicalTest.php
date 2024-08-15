@@ -110,20 +110,18 @@ class HierarchicalTest extends TestCase
      */
     public function testOverrideProtectedItemLocally()
     {
-        $container = new Container;
+        $container = new Container();
         $container->protect(
             StubInterface::class,
-            static function ()
-            {
-                return new Stub1;
+            static function () {
+                return new Stub1();
             }
         );
         $child = $container->createChild();
         $child->set(
             StubInterface::class,
-            static function ()
-            {
-                return new Stub4;
+            static function () {
+                return new Stub4();
             }
         );
 
